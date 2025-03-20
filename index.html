@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Science Toolkit</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="chart.js"></script>
-    <script src="chartjs-chart-matrix.js"></script>
-    <script src="xlsx.full.min.js"></script>
+    <!-- Core Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Chart.js Matrix plugin for heatmaps -->
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.1.0/dist/chartjs-chart-matrix.min.js"></script>
+    <!-- XLSX library for Excel file handling -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
@@ -17,7 +17,7 @@
         <h1>Data Science Toolkit</h1>
         <div class="calculator">
             <label for="tool">Select Tool:</label>
-            <select id="tool" onchange="updateInputs()">
+            <select id="tool">
                 <option value="binomial">Binomial Distribution</option>
                 <option value="poisson">Poisson Distribution</option>
                 <option value="normal">Normal Distribution</option>
@@ -37,7 +37,7 @@
             <div id="data-input" class="input-group" style="display: none;">
                 <textarea id="dataset" placeholder="Enter data (e.g., 1,2; 3,4 for heatmap; 0.3,0.4,0.3 for categorical)" rows="3"></textarea>
                 <label for="excel-upload">Or upload Excel file:</label>
-                <input type="file" id="excel-upload" accept=".xlsx, .xls" onchange="handleExcelUpload(event)">
+                <input type="file" id="excel-upload" accept=".xlsx, .xls">
                 <label for="clean-method">Handle Missing/Non-Numeric:</label>
                 <select id="clean-method">
                     <option value="drop">Drop Rows</option>
@@ -48,7 +48,7 @@
 
             <div id="input-fields" class="input-group"></div>
 
-            <button id="calc-btn" onclick="calculate()">Calculate</button>
+            <button id="calc-btn">Calculate</button>
 
             <div id="progress" class="progress-bar">
                 <div id="progress-fill" class="progress-fill"></div>
@@ -66,6 +66,6 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>
